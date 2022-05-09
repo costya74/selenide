@@ -5,15 +5,26 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 11
+// кодировка файлов (если используете русский язык в файлах)
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'com.codeborne:selenide:6.4.0'
+    testImplementation "io.github.bonigarcia:webdrivermanager:5.1.1"  // WebDriverManager универсальный драйвер Gradle
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.5'
 }
 
 test {
     useJUnitPlatform()
+    // в тестах, вызывая `gradlew test -D selenide.headless=true` будем передавать этот параметр в JVM (где его подтянет Selenide)
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
 }
