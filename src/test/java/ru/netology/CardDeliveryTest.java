@@ -31,16 +31,16 @@ public class CardDeliveryTest {
     void shouldSuccessfullyOrderONCard() {
         String planningDate = generateDate(3);
         $("[data-test-id='city'] input").setValue("Пермь");
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Иванов Иван");
         $("[data-test-id='phone'] input").setValue("+79021234567");
         $("[data-test-id='agreement']").click();
         $(byText("Забронировать")).click();
-        $(withText("Успешно!")).shouldBe(visible,Duration.ofSeconds(15));
+        $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
         $(".notification__content")
                 .shouldHave(Condition.text("Встреча успешно забронирована на " + planningDate))
-                .shouldBe(visible,Duration.ofSeconds(15));
+                .shouldBe(visible, Duration.ofSeconds(15));
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CardDeliveryTest {
         String planningDate = generateDate(3);
         $("[data-test-id='city'] input").setValue("");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Иванов Иван");
         $("[data-test-id='phone'] input").setValue("+79021234567");
         $("[data-test-id='agreement']").click();
@@ -61,7 +61,7 @@ public class CardDeliveryTest {
         String planningDate = generateDate(3);
         $("[data-test-id='city'] input").setValue("Чуваки");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Иванов Иван");
         $("[data-test-id='phone'] input").setValue("+79021234567");
         $("[data-test-id='agreement']").click();
@@ -86,7 +86,7 @@ public class CardDeliveryTest {
         String planningDate = generateDate(2);
         $("[data-test-id='city'] input").setValue("Пермь");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Иванов Иван");
         $("[data-test-id='phone'] input").setValue("+79021234567");
         $("[data-test-id='agreement']").click();
@@ -99,7 +99,7 @@ public class CardDeliveryTest {
         String planningDate = generateDate(3);
         $("[data-test-id='city'] input").setValue("Пермь");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("");
         $("[data-test-id='phone'] input").setValue("+79021234567");
         $("[data-test-id='agreement']").click();
@@ -112,7 +112,7 @@ public class CardDeliveryTest {
         String planningDate = generateDate(3);
         $("[data-test-id='city'] input").setValue("Пермь");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Ivanov Ivan");
         $("[data-test-id='phone'] input").setValue("+79021234567");
         $("[data-test-id='agreement']").click();
@@ -125,7 +125,7 @@ public class CardDeliveryTest {
         String planningDate = generateDate(3);
         $("[data-test-id='city'] input").setValue("Пермь");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Иванов Иван");
         $("[data-test-id='phone'] input").setValue("89021234567");
         $("[data-test-id='agreement']").click();
@@ -138,7 +138,7 @@ public class CardDeliveryTest {
         String planningDate = generateDate(3);
         $("[data-test-id='city'] input").setValue("Пермь");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[data-test-id='date'] input").setValue(String.valueOf(planningDate));
+        $("[data-test-id='date'] input").setValue(planningDate);
         $("[data-test-id='name'] input").setValue("Иванов Иван");
         $("[data-test-id='phone'] input").setValue("+79021234567");
         $(byText("Забронировать")).click();
